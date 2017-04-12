@@ -2,29 +2,39 @@ RM	=	rm -f
 
 FC	=	gfortran
 FCFLAGS	=	-O -Wall -fbounds-check -g -Wno-uninitialized
-# options edition de lien lib
 LDFLAGS	=	-L../lib
-# libs
 LDLIBS	=	-llbfgsb
 
 SRCS	=	$(shell find . -name '*.f')
 OBJS	=	$(SRCS:.f=.o)
 NAME	=	$(OBJS:.o=)
+NAMEOUT	=	$(NAME:=.out)
 
-all:	-r
+all:	-r test
+
+-r:	$(OBJS) $(NAME)
 
 %.o:	%.f
 	$(FC) $(FCFLAGS) -c $< -o $@
 
 %:	%.o
 	$(FC) $< $(LDFLAGS) $(LDLIBS) -o $@
-#	@echo LINKAGE $< en $@
-
-# produit les 3 executables
--r:	$(OBJS) $(NAME)
-
-#re:	clean all
 
 clean:
 	$(RM) $(OBJS)
 	$(RM) $(NAME)
+	$(RM) $(NAMEOUT)
+
+# ---------------------------- Tests ------------------------------ #
+
+test:	$(NAMEOUT)
+
+%.out:	%
+	@./$< 1> $@ 2>/dev/null
+	@grep -v time $@ > $@.tmp
+	@grep -v time $<.res > $<.res.tmp
+	@diff $@.tmp $<.res.tmp
+	@echo test de $< ok
+	@$(RM) $@.tmp $<.res.tmp iterate.dat
+
+.PHONY:	all clean
