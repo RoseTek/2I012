@@ -1,4 +1,0 @@
-Bonjour,
-
-Après avoir réalisé le DM sur les Makefiles, j'ai quelques questions par rapport au sujet.
-Dans l'exercice 1,à quoi correspond le troisième point "au besoin les dépendances entre les fichiers sont explicitement écrites dans le fichier lib/Makefile" ?
