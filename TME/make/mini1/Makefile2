@@ -1,0 +1,13 @@
+CC	=	gcc
+
+SRCS	=	pi.c
+
+OBJS	=	$(SRCS:.c=.o)
+
+LDFLAGS	=	-lm
+
+%.o:	%.c
+	$(CC) -o $@ -c $<
+
+pi:	$(OBJS)
+	$(CC) $(OBJS) -o $@ $(LDFLAGS)
