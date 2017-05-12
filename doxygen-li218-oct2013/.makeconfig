@@ -1,0 +1,14 @@
+DOXYGEN   = /home/bereziat/bereziat/Secretariat/Enseignement/LI218/Examens/Janvier2014/Donnees/doxygen-1.8.5
+TMAKEPATH = /home/bereziat/bereziat/Secretariat/Enseignement/LI218/Examens/Janvier2014/Donnees/doxygen-1.8.5/tmake/lib/linux-g++
+ENV       = env TMAKEPATH="$(TMAKEPATH)"
+TMAKE     = /home/bereziat/bereziat/Secretariat/Enseignement/LI218/Examens/Janvier2014/Donnees/doxygen-1.8.5/tmake/bin/tmake
+MAKE      = /usr/bin/make
+PERL      = /usr/bin/perl
+RM        = rm -f
+CP        = cp
+VERSION   = 1.8.5
+INSTALL   = /usr/local
+INSTTOOL  = /usr/bin/install
+DOXYDOCS  = ..
+DOCDIR    = $(INSTALL)/share/doc/packages/doxygen
+QTDIR     = 
