@@ -1,6 +1,0 @@
-AR = ar
-RANLIB = ranlib
-CXX = g++
-CXXFLAGS = -pipe -Wall -w -O2
-SRC = *.cpp
-OBJ = $(SRC:.cpp=.o)
